@@ -3,8 +3,12 @@ import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.KeyEvent;
 
-public class FlappyBird implements ActionListener, MouseListener, KeyListener {
+
+public class FlappyBird implements ActionListener, KeyListener {
 
     public static final int WIDTH = 800;
     public static final int HEIGHT = 800;
@@ -15,6 +19,7 @@ public class FlappyBird implements ActionListener, MouseListener, KeyListener {
     public static boolean started;
     public static boolean gameOver;
     public Random rand;
+    public static int bestScore;
 
     public FlappyBird() {
         JFrame jframe = new JFrame();
@@ -27,7 +32,6 @@ public class FlappyBird implements ActionListener, MouseListener, KeyListener {
         jframe.setTitle("Flappy Bird");
         jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jframe.setSize(WIDTH, HEIGHT);
-        jframe.addMouseListener(this);
         jframe.addKeyListener(this);
         jframe.setResizable(false);
         jframe.setVisible(true);
@@ -41,46 +45,15 @@ public class FlappyBird implements ActionListener, MouseListener, KeyListener {
         CreatingColumns.creatingColumns(true);
 
         if (gameOver) {
+            bestScore = score;
+            DataBaseConnect dataBaseConnect = new DataBaseConnect();
+            DataBaseConnect.insertingInTable();
             CreatingColumns.creatingColumns(false);
         }
 
         timer.start();
     }
 
-
-    @Override
-    public void mouseClicked(MouseEvent e) {
-
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-    }
-
-    @Override
-    public void keyTyped(KeyEvent e) {
-
-    }
-
-    @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_SPACE)
         {
@@ -160,5 +133,14 @@ public class FlappyBird implements ActionListener, MouseListener, KeyListener {
         renderer.repaint();
     }
 
+    @Override
+    public void keyTyped(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+
+    }
 
 }

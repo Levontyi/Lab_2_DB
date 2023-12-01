@@ -4,10 +4,8 @@ public class Repaint extends FlappyBird {
 
     public static void repaint(Graphics g) {
 
-        Image background = Toolkit.getDefaultToolkit().getImage("C:\\FlappyBird\\src\\Background.png");
+        Image background = Toolkit.getDefaultToolkit().getImage("C:\\FlappyBird\\src\\main\\resources\\Background.png");
         g.drawImage(background, 0, 0,Color.BLUE, null);
-        //g.setColor(Color.cyan);
-        //g.fillRect(0, 0, WIDTH, HEIGHT);
 
         g.setColor(Color.orange);
         g.fillRect(0, HEIGHT - 120, WIDTH, 120);
