@@ -8,5 +8,4 @@ public class Renderer extends JPanel {
         super.paintComponent(g);
         Repaint.repaint(g);
     }
-
 }

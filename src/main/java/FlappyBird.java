@@ -142,5 +142,4 @@ public class FlappyBird implements ActionListener, KeyListener {
     public void keyReleased(KeyEvent e) {
 
     }
-
 }

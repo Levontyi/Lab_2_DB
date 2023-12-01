@@ -18,8 +18,8 @@ public class DataBaseConnect {
             resultSet.last();
             int lastIndex = resultSet.getInt(1) + 1;
 
-            ResultSet table = statement.executeQuery("INSERT * INTO bestscore(id, score) VALUES (" + lastIndex + ", " + FlappyBird.bestScore + ");");
-
+            ResultSet table = statement.executeQuery("INSERT * INTO bestscore(id, score) VALUES ("
+                    + lastIndex + ", " + FlappyBird.bestScore + ");");
         } catch (SQLException e) {
             System.out.println(e);
         } catch (ClassNotFoundException e) {

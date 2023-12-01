@@ -26,7 +26,6 @@ public class Bird extends FlappyBird {
             if (yMotion > 0) {
                 yMotion = 0;
             }
-
             yMotion -= 10;
         }
     }

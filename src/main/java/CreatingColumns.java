@@ -5,6 +5,7 @@ import java.util.Random;
 public class CreatingColumns extends FlappyBird {
 
     public static ArrayList<Rectangle> columns;
+
     public static void creatingColumns(boolean start) {
 
         int space = 300;

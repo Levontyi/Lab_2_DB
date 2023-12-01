@@ -36,4 +36,5 @@ public class Repaint extends FlappyBird {
             g.drawString(String.valueOf(score), WIDTH / 2 - 25, 100);
         }
     }
+
 }
