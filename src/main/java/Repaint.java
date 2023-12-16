@@ -43,6 +43,7 @@ public class Repaint extends FlappyBird {
     }
 
     private static int record() {
+        Database database = new Database();
         ScoreRecording scoreRecording = new ScoreRecording();
 
         scoreRecording.createNewRecord(score);

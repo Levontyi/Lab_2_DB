@@ -43,6 +43,7 @@ public class Database {
     private void createTableBestScore() {
         String sql = """
         create table if not exists gametable.bestscore (
+            id serial primary key,
             bestscores int
         );
         """;
@@ -78,5 +79,6 @@ public class Database {
         }
         return bestScore;
     }
+
 }
 

@@ -12,10 +12,10 @@ public class TestingCheckMaxResult {
     public void testingMaxResult() {
 
         ScoreRecording scoreRecording = new ScoreRecording();
-        scoreRecording.createNewRecord(123);
-        scoreRecording.createNewRecord(234);
+        scoreRecording.createNewRecord(1);
+        scoreRecording.createNewRecord(2);
 
         int score = Database.getResult();
-        then(score == 234);
+        then(score == 2);
     }
 }
