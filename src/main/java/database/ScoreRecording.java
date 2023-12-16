@@ -9,14 +9,14 @@ public class ScoreRecording {
                 insert into gametable.bestscore
                 (bestscores)
                 values
-                (%d)
+                (%d);
                 """;
         db.execute(String.format(sql, record));
     }
 
     public void getMaxResult() {
         String sql = """
-                select MAX(bestscores) from gametable.bestscore
+                select MAX(bestscores) from gametable.bestscore;
                 """;
         db.execute(sql);
     }

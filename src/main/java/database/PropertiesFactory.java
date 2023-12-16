@@ -23,7 +23,7 @@ public final class PropertiesFactory {
 
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
         properties = new DatabaseProperties();
-        try (InputStream stream = ClassLoader.getSystemResourceAsStream(filePropertiesName)) {
+        try (InputStream stream = classLoader.getResourceAsStream(filePropertiesName)) {
             properties.load(stream);
         } catch (IOException ex) {
             System.out.println(ex.getMessage());

@@ -44,7 +44,7 @@ public class Database {
         String sql = """
         create table if not exists gametable.bestscore (
             bestscores int
-        )
+        );
         """;
 
         execute(sql);
@@ -59,15 +59,20 @@ public class Database {
     }
 
     public static int getResult() {
-        int bestScore = 0;
+        ScoreRecording scoreRecording = new ScoreRecording();
+        scoreRecording.getMaxResult();
         String sql = """
-                select MAX(bestscores) from gametable.bestscore
+                select MAX(bestscores) from gametable.bestscore;
                 """;
 
-        try(Connection connection = connect();
-            Statement statement = connection.createStatement()) {
+        int bestScore = 0;
+        try (Connection connection = connect();
+             Statement statement = connection.createStatement()) {
             ResultSet set = statement.executeQuery(sql);
-            bestScore = set.getInt("bestscores");
+            if (set.next()) {
+                bestScore = set.getInt(1);
+            }
+
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }

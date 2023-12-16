@@ -1,3 +1,6 @@
+import database.Database;
+import database.ScoreRecording;
+
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Random;

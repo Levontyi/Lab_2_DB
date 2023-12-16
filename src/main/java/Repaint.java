@@ -1,3 +1,6 @@
+import database.Database;
+import database.ScoreRecording;
+
 import java.awt.*;
 
 public class Repaint extends FlappyBird {
@@ -30,13 +33,22 @@ public class Repaint extends FlappyBird {
         if (gameOver) {
             g.drawString("Game Over!", 250, 200);
             g.drawString("Your score: " + FlappyBird.score, 230, 250);
-            g.drawString("Best score: " + FlappyBird.bestScore, 230, 300);
+            g.drawString("Best score: " + record(), 230, 300);
             g.drawString("Press space to restart", 130, 350);
         }
 
         if (!gameOver && started) {
             g.drawString(String.valueOf(score), WIDTH / 2 - 25, 100);
         }
+    }
+
+    private static int record() {
+        ScoreRecording scoreRecording = new ScoreRecording();
+
+        scoreRecording.createNewRecord(score);
+        bestScore = Database.getResult();
+
+        return bestScore;
     }
 
 }

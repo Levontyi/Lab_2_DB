@@ -48,9 +48,6 @@ public class FlappyBird implements ActionListener, KeyListener {
         CreatingColumns.creatingColumns(true);
 
         if (gameOver) {
-            ScoreRecording scoreRecording = new ScoreRecording();
-            scoreRecording.createNewRecord(score);
-            bestScore = Database.getResult();
             CreatingColumns.creatingColumns(false);
         }
 
@@ -136,9 +133,6 @@ public class FlappyBird implements ActionListener, KeyListener {
         renderer.repaint();
     }
 
-    public void getMaxResult() {
-
-    }
 
     @Override
     public void keyTyped(KeyEvent e) {
