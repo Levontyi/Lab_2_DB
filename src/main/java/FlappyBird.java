@@ -1,3 +1,6 @@
+import database.Database;
+import database.ScoreRecording;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
@@ -45,9 +48,9 @@ public class FlappyBird implements ActionListener, KeyListener {
         CreatingColumns.creatingColumns(true);
 
         if (gameOver) {
-            bestScore = score;
-            DataBaseConnect dataBaseConnect = new DataBaseConnect();
-            DataBaseConnect.insertingInTable();
+            ScoreRecording scoreRecording = new ScoreRecording();
+            scoreRecording.createNewRecord(score);
+            bestScore = Database.getResult();
             CreatingColumns.creatingColumns(false);
         }
 
@@ -131,6 +134,10 @@ public class FlappyBird implements ActionListener, KeyListener {
         }
 
         renderer.repaint();
+    }
+
+    public void getMaxResult() {
+
     }
 
     @Override

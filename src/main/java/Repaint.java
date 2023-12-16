@@ -4,7 +4,7 @@ public class Repaint extends FlappyBird {
 
     public static void repaint(Graphics g) {
 
-        Image background = Toolkit.getDefaultToolkit().getImage("C:\\FlappyBird\\src\\main\\resources\\Background.png");
+        Image background = Toolkit.getDefaultToolkit().getImage("C:\\FlappyBird\\src\\main\\resource\\Background.png");
         g.drawImage(background, 0, 0,Color.BLUE, null);
 
         g.setColor(Color.orange);
@@ -29,7 +29,9 @@ public class Repaint extends FlappyBird {
 
         if (gameOver) {
             g.drawString("Game Over!", 250, 200);
-            g.drawString("Press space to restart", 130, 330);
+            g.drawString("Your score: " + FlappyBird.score, 230, 250);
+            g.drawString("Best score: " + FlappyBird.bestScore, 230, 300);
+            g.drawString("Press space to restart", 130, 350);
         }
 
         if (!gameOver && started) {
