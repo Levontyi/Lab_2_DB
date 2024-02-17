@@ -1,6 +1,3 @@
-import database.Database;
-import database.ScoreRecording;
-
 import java.awt.*;
 
 public class Bird extends FlappyBird {
